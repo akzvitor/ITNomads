@@ -39,7 +39,7 @@ struct HomeView: View {
                             //Text("\(vviewModel.localizacao.count)")
                             ForEach(vviewModel.localizacao){ p in
                                 
-                                NavigationLink(destination: ForumView(presentSideMenu: .constant(true), nomePais: p.name)){
+                                NavigationLink(destination: ForumEspecificoView(presentSideMenu: .constant(true), nomePais: p.name)){
                                     Text(flag(country: p.regionalIndicator))
                                         .font(.system(size: 50))
                                     Text("\(p.name)")

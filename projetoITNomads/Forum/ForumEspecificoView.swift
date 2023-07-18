@@ -65,6 +65,6 @@ struct ForumEspecificoView: View {
 
 struct ForumEspecificoView_Previews: PreviewProvider {
     static var previews: some View {
-        ForumEspecificoView(presentSideMenu: .constant(true))
+        ForumEspecificoView(presentSideMenu: .constant(true), nomePais: String())
     }
 }
