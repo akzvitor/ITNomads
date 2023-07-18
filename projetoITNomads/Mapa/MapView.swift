@@ -26,7 +26,7 @@ struct MapView: View {
         
         @State private var showingSheet = false
         @State private var paisEscolhido = "Brazil"
-        @State private var currentLoc = Location(name: "",
+    @State private var currentLoc = Location(name: "", regionalIndicator: "",
                                                  coordinates: CLLocationCoordinate2D(latitude: -15.749997, longitude: -47.9499962),
                                                  flag: "",
                                                  description: "")

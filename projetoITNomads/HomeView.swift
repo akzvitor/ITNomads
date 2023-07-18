@@ -13,7 +13,17 @@ struct HomeView: View {
     
     @StateObject var vviewModel = ViewModel()
     
+    func flag(country: String) -> String {
+        let base: UInt32 = 127397
+        var s = ""
+        for v in country.unicodeScalars {
+            s.unicodeScalars.append(UnicodeScalar(base + v.value)!)
+        }
+        return String(s)
+    }
+    
     var body: some View {
+        
         NavigationStack{
             ZStack{
                 
@@ -30,11 +40,12 @@ struct HomeView: View {
                             ForEach(vviewModel.localizacao){ p in
                                 
                                 NavigationLink(destination: ForumView(presentSideMenu: .constant(true), nomePais: p.name)){
+                                    Text(flag(country: p.regionalIndicator))
+                                        .font(.system(size: 50))
                                     Text("\(p.name)")
                                         .font(.title)
                                         .padding(10)
                                 }
-                                
                             }
                         }
                     }.onAppear(){

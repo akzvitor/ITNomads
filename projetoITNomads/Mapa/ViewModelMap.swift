@@ -13,25 +13,21 @@ import MapKit
 struct Pais: Codable{
     let _id: String?
     let nomePais: String?
+    let regionalIndicator: String?
     let picture: String?
     let descricao: String?
     let latitude: String?
     let longitude: String?
-
-    
 }
-
 
 struct Location: Identifiable {
     let id = UUID()
     let name: String
+    let regionalIndicator: String
     let coordinates: CLLocationCoordinate2D
     let flag: String
     let description: String
 }
-
-
-
 
 class ViewModel : ObservableObject {
     //@Published antes da propriedade chars indica que ela é uma propriedade publicada, o que significa que qualquer alteração nessa propriedade será automaticamente notificada aos observadores.
@@ -58,7 +54,7 @@ class ViewModel : ObservableObject {
                     self?.chars = parsed
                     
                     for i in self!.chars {
-                        self?.localizacao.append(Location(name: i.nomePais!, coordinates: CLLocationCoordinate2D(latitude: Double(i.latitude!)!, longitude: Double(i.longitude!)!), flag: i.picture!, description: i.descricao!))
+                        self?.localizacao.append(Location(name: i.nomePais!,regionalIndicator: i.regionalIndicator!, coordinates: CLLocationCoordinate2D(latitude: Double(i.latitude!)!, longitude: Double(i.longitude!)!), flag: i.picture!, description: i.descricao!))
                     }
                     
                     
