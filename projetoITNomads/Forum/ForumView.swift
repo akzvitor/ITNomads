@@ -14,7 +14,7 @@ struct ForumView: View {
     @StateObject var viewModelForum = ViewModelforum()
     
     
-    @State var nomePais: String = "Geral estraga"
+    @State var nomePais: String = "Geral"
     
     var body: some View {
         ZStack{
@@ -26,8 +26,19 @@ struct ForumView: View {
                             
                             
                             ForEach(viewModelForum.chars, id: \._id){ per in
-                                if per.pais! == nomePais {
-                                    Text(per.tituloPergunta!)
+                                if nomePais == "Geral" {
+                                    NavigationLink(destination: RespostaView(id: per._id!)){
+                                        Text(per.tituloPergunta!)
+                                    }
+                                        .font(.title)
+                                    Text(per.userPergunta!)
+                                    Rectangle()
+                                }
+                                else if per.pais! == nomePais {
+                                    
+                                    NavigationLink(destination: RespostaView(id: per._id!)){
+                                        Text(per.tituloPergunta!)
+                                    }
                                         .font(.title)
                                     Text(per.userPergunta!)
                                     Rectangle()
