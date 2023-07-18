@@ -1,20 +1,20 @@
 //
-//  ForumView.swift
+//  ForumEspecificoView.swift
 //  projetoITNomads
 //
-//  Created by Student08 on 13/07/23.
+//  Created by Student04 on 18/07/23.
 //
 
 import SwiftUI
 
-struct ForumView: View {
+struct ForumEspecificoView: View {
     
     @Binding var presentSideMenu: Bool
     
     @StateObject var viewModelForum = ViewModelforum()
     
     
-    @State var nomePais: String = "Geral"
+    @State var nomePais: String = "Especifico"
     
     var body: some View {
         ZStack{
@@ -26,7 +26,8 @@ struct ForumView: View {
                             
                             
                             ForEach(viewModelForum.chars, id: \._id){ per in
-                                if nomePais == "Geral" {
+                                if per.pais! == nomePais {
+                                    
                                     NavigationLink(destination: RespostaView(id: per._id!)){
                                         Text(per.tituloPergunta!)
                                     }
@@ -62,8 +63,8 @@ struct ForumView: View {
     }
 }
 
-struct ForumView_Previews: PreviewProvider {
+struct ForumEspecificoView_Previews: PreviewProvider {
     static var previews: some View {
-        ForumView(presentSideMenu: .constant(true))
+        ForumEspecificoView(presentSideMenu: .constant(true))
     }
 }

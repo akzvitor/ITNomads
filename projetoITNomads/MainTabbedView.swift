@@ -12,6 +12,8 @@ struct MainTabbedView: View {
     @State var presentSideMenu = false
     @State var selectedSideMenuTab = 0
     
+    @State var userName = ""
+    
     var body: some View {
         ZStack{
             
@@ -26,13 +28,13 @@ struct MainTabbedView: View {
                     .tag(3)
             }
             
-            SideMenu(isShowing: $presentSideMenu, content: AnyView(SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu)))
+            SideMenu(isShowing: $presentSideMenu, content: AnyView(SideMenuView(selectedSideMenuTab: $selectedSideMenuTab, presentSideMenu: $presentSideMenu, username: userName)))
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabbedView()
+        MainTabbedView(userName: String())
     }
 }

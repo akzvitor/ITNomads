@@ -12,6 +12,8 @@ struct SideMenuView: View {
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     
+    @State var username = " "
+    
     var body: some View {
         HStack {
             
@@ -64,7 +66,7 @@ struct SideMenuView: View {
                 Spacer()
             }
             
-            Text("Username")
+            Text(username)
                 .font(.system(size: 18, weight: .bold))
                 .foregroundColor(.black)
             

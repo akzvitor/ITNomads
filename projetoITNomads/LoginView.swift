@@ -16,7 +16,7 @@ struct LoginView: View {
             TextField("Digite aqui", text: $username)
             
             
-            NavigationLink(destination: MainTabbedView()){
+            NavigationLink(destination: MainTabbedView(userName: username)){
                 Text("Enter \(username)")
             }
         }    }
