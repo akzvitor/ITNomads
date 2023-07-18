@@ -14,7 +14,7 @@ struct ForumView: View {
     @StateObject var viewModelForum = ViewModelforum()
     
     
-    @State var nomePais: String = "Geral"
+    @State var nomePais: String = "Geral estraga"
     
     var body: some View {
         ZStack{
