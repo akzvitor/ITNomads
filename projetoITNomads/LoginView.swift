@@ -17,7 +17,7 @@ struct LoginView: View {
             
             
             NavigationLink(destination: MainTabbedView(userName: username)){
-                Text("Enter \(username)")
+                Text("Enter")
             }
         }    }
 }
