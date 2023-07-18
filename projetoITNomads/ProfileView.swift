@@ -27,6 +27,7 @@ struct ProfileView: View {
             
             Spacer()
             Text("Profile View")
+            Text("Profile View")
             Spacer()
         }
         .padding(.horizontal, 24)
