@@ -61,7 +61,6 @@
 		F23B4CD82A60634C00FCD090 = {
 			isa = PBXGroup;
 			children = (
-				F15449002A684CFC0077991D /* ViewModelUser.swift */,
 				F23B4CE32A60634C00FCD090 /* projetoITNomads */,
 				F23B4CE22A60634C00FCD090 /* Products */,
 			);
@@ -79,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				F23B4CE42A60634C00FCD090 /* projetoITNomadsApp.swift */,
+				F15449002A684CFC0077991D /* ViewModelUser.swift */,
 				F23B4CE62A60634C00FCD090 /* MainTabbedView.swift */,
 				F23B4CF22A6065AD00FCD090 /* HomeView.swift */,
 				F18960142A671479007524ED /* LoginView.swift */,
