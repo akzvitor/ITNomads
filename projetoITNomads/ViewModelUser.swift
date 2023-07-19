@@ -28,7 +28,7 @@ class viewModelUser : ObservableObject {
     
     //  A função fetch() é responsável por fazer uma solicitação de rede para recuperar dados de uma API. Ela cria uma instância de URL e verifica se a criação do URL foi bem-sucedida. Caso contrário, a função retorna imediatamente.
     func fetch(){
-        guard let url = URL(string: "http://192.168.128.252:1880/readNomadsForum" ) else{
+        guard let url = URL(string: "http://192.168.128.252:1880/readNomadsUsers" ) else{
             return
         }
         //A função usa URLSession.shared.dataTask(with:completionHandler:) para iniciar uma tarefa de solicitação de dados a partir do URL. O bloco de conclusão (data, _, error) é chamado quando a tarefa é concluída.

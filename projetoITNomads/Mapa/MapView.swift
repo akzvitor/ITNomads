@@ -74,10 +74,8 @@ struct MapView: View {
             }
             .padding(.horizontal, 24)
             .onAppear(){
-                            mapviewModel.fetch()
-                            
-                            
-                        }
+                mapviewModel.fetch()
+            }
         }
     }
 }
