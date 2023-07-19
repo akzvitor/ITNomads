@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F15449012A684CFC0077991D /* ViewModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15449002A684CFC0077991D /* ViewModelUser.swift */; };
 		F18960152A671479007524ED /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18960142A671479007524ED /* LoginView.swift */; };
 		F18960172A671547007524ED /* RespostaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18960162A671547007524ED /* RespostaView.swift */; };
 		F18960192A671B62007524ED /* ForumEspecificoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18960182A671B62007524ED /* ForumEspecificoView.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F15449002A684CFC0077991D /* ViewModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUser.swift; sourceTree = "<group>"; };
 		F18960142A671479007524ED /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		F18960162A671547007524ED /* RespostaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RespostaView.swift; sourceTree = "<group>"; };
 		F18960182A671B62007524ED /* ForumEspecificoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForumEspecificoView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		F23B4CD82A60634C00FCD090 = {
 			isa = PBXGroup;
 			children = (
+				F15449002A684CFC0077991D /* ViewModelUser.swift */,
 				F23B4CE32A60634C00FCD090 /* projetoITNomads */,
 				F23B4CE22A60634C00FCD090 /* Products */,
 			);
@@ -203,6 +206,7 @@
 				F23B4CFB2A606DAF00FCD090 /* SideMenu.swift in Sources */,
 				F23B4CFF2A61C2B000FCD090 /* ViewModelMap.swift in Sources */,
 				F23B4CF72A6065D600FCD090 /* MapView.swift in Sources */,
+				F15449012A684CFC0077991D /* ViewModelUser.swift in Sources */,
 				F18960152A671479007524ED /* LoginView.swift in Sources */,
 				F23B4CE72A60634C00FCD090 /* MainTabbedView.swift in Sources */,
 				F2744D702A61C60B008A265E /* ViewModelForum.swift in Sources */,
