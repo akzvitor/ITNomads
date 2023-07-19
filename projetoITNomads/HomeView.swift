@@ -26,7 +26,8 @@ struct HomeView: View {
         
         NavigationStack{
             ZStack{
-                
+                LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
+                                    .ignoresSafeArea()
                 ScrollView{
                     VStack{
                         Text("Destaques")
@@ -45,6 +46,7 @@ struct HomeView: View {
                                     Text("\(p.name)")
                                         .font(.title)
                                         .padding(10)
+                                        .foregroundColor(.black)
                                 }
                             }
                         }
@@ -59,6 +61,7 @@ struct HomeView: View {
                 
                 VStack{
                     HStack{
+                        Spacer()
                         Button{
                             presentSideMenu.toggle()
                         } label: {
@@ -67,7 +70,6 @@ struct HomeView: View {
                                 .frame(width: 25, height: 20)
                                 .foregroundColor(.black)
                         }
-                        Spacer()
                     }
                     
                     Spacer()

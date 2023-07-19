@@ -14,6 +14,7 @@ struct ProfileView: View {
     var body: some View {
         VStack{
             HStack{
+                Spacer()
                 Button{
                     presentSideMenu.toggle()
                 } label: {
@@ -22,11 +23,9 @@ struct ProfileView: View {
                         .frame(width: 25, height: 20)
                         .foregroundColor(.black)
                 }
-                Spacer()
             }
-            
             Spacer()
-            Text("Profile View")S
+            Text("Profile View")
             Spacer()
         }
         .padding(.horizontal, 24)

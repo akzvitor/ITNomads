@@ -44,6 +44,7 @@ struct ForumEspecificoView: View {
             
             VStack{
                 HStack{
+                    Spacer()
                     Button{
                         presentSideMenu.toggle()
                     } label: {
@@ -52,7 +53,6 @@ struct ForumEspecificoView: View {
                             .frame(width: 25, height: 20)
                             .foregroundColor(.black)
                     }
-                    Spacer()
                 }
                 
                 Spacer()

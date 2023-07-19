@@ -12,7 +12,7 @@ struct SideMenuView: View {
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     
-    @State var username = " "
+    @State var username = ""
     
     var body: some View {
         HStack {

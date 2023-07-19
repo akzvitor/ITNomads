@@ -14,30 +14,35 @@ struct DescriptionView: View {
     
     var body: some View {
         ScrollView{
-                   VStack{
-                       Text(nomePais!)
-                           .font(.largeTitle.bold())
-                       
-                       
-                       AsyncImage(
-                           url: URL(string: picture!),
-                           content: { image in
-                               image.resizable()
-                                   .aspectRatio(contentMode: .fit)
-                                   .frame(maxWidth: 300, maxHeight: 300)
-                           },
-                           placeholder: {
-                               ProgressView()
-                           }
-                       )
-                       VStack(alignment: .leading){
-                           Text(descricao!)
-                       }
-                       .padding(20)
-                   }
-               }
-           }
+            ZStack{
+                LinearGradient(gradient: Gradient(colors: [.white, .teal]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+
+                VStack{
+                    Text(nomePais!)
+                        .font(.largeTitle.bold())
+                    
+                    
+                    AsyncImage(
+                        url: URL(string: picture!),
+                        content: { image in
+                            image.resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(maxWidth: 300, maxHeight: 300)
+                        },
+                        placeholder: {
+                            ProgressView()
+                        }
+                    )
+                    VStack(alignment: .leading){
+                        Text(descricao!)
+                    }
+                    .padding(20)
+                }
+            }
+        }
     }
+}
 
 struct DescriptionView_Previews: PreviewProvider {
     static var previews: some View {

@@ -42,23 +42,23 @@ struct MapView: View {
                 
                 
                 MapAnnotation(coordinate: loc.coordinates) {
-                    Circle()
-                        .fill(.black)
-                        .frame(width: 20, height: 20)
+                    Image(systemName: "mappin.and.ellipse")
+                        .frame(width: 100, height: 100)
+                        .foregroundColor(.red)
                         .onTapGesture {
                             currentLoc = loc
                             showingSheet.toggle()
                         }
                         .sheet(isPresented: $showingSheet) {
-                            
                             DescriptionView(nomePais: currentLoc.name, picture: currentLoc.flag, descricao: currentLoc.description)
-                            
                         }
+                        .imageScale(.large)
                 }
             })
             .ignoresSafeArea()
             VStack{
                 HStack{
+                    Spacer()
                     Button{
                         presentSideMenu.toggle()
                     } label: {
@@ -67,7 +67,6 @@ struct MapView: View {
                             .frame(width: 25, height: 20)
                             .foregroundColor(.black)
                     }
-                    Spacer()
                 }
                 
                 Spacer()
