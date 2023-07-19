@@ -24,7 +24,7 @@ struct MainTabbedView: View {
                     .tag(1)
                 ForumView(presentSideMenu: $presentSideMenu)
                     .tag(2)
-                ProfileView(presentSideMenu: $presentSideMenu)
+                ProfileView(presentSideMenu: $presentSideMenu, userNameLocal: userName)
                     .tag(3)
             }
             
