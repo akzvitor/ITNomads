@@ -18,10 +18,14 @@ struct Pais: Codable{
     let descricao: String?
     let latitude: String?
     let longitude: String?
+    let corPaisTop: String?
+    let corPaisBot: String?
 }
 
 struct Location: Identifiable {
     let id = UUID()
+    let corCima: String?
+    let corBaixo: String?
     let name: String
     let regionalIndicator: String
     let coordinates: CLLocationCoordinate2D
@@ -54,7 +58,7 @@ class ViewModel : ObservableObject {
                     self?.chars = parsed
                     
                     for i in self!.chars {
-                        self?.localizacao.append(Location(name: i.nomePais!,regionalIndicator: i.regionalIndicator!, coordinates: CLLocationCoordinate2D(latitude: Double(i.latitude!)!, longitude: Double(i.longitude!)!), flag: i.picture!, description: i.descricao!))
+                        self?.localizacao.append(Location(corCima: i.corPaisTop!, corBaixo: i.corPaisBot!, name: i.nomePais!,regionalIndicator: i.regionalIndicator!, coordinates: CLLocationCoordinate2D(latitude: Double(i.latitude!)!, longitude: Double(i.longitude!)!), flag: i.picture!, description: i.descricao!))
                     }
                     
                     
@@ -71,3 +75,4 @@ class ViewModel : ObservableObject {
 
     
 }
+

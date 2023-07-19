@@ -19,21 +19,51 @@ struct ForumView: View {
     var body: some View {
         NavigationStack{
             ZStack{
+                LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
+                                    .ignoresSafeArea()
                 
                 ScrollView{
                     VStack{
                         Text(nomePais)
                             .font(.largeTitle.bold())
                         
+                        Spacer(minLength: 30)
                         
                         ForEach(viewModelForum.chars, id: \._id){ per in
                             if nomePais == "Geral" {
                                 NavigationLink(destination: RespostaView(id: per._id!)){
                                     Text(per.tituloPergunta!)
+                                        .foregroundColor(.black)
                                 }
                                 .font(.title)
-                                Text(per.userPergunta!)
+                                
+                                NavigationLink(destination: ProfileView(presentSideMenu: .constant(true), userNameLocal: per.userPergunta!)){
+                                    Text(per.userPergunta!)
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                }
+                                .font(.title)
+                                    
+                                    
+                                
+                                Spacer()
+                                    
+                                HStack{
+                                    
+                                    Image(systemName: "heart")
+                                    
+                                    NavigationLink(destination: RespostaView(id: per._id!)){
+                                        Image(systemName: "ellipsis.message")
+                                            .foregroundColor(.black)
+                                    }
+                                    
+                                    Image(systemName: "arrowshape.turn.up.right")
+
+                                }
+                                Spacer(minLength: 15)
                                 Rectangle()
+                                    .frame(width: 300, height: 2)
+                                    .foregroundColor(.gray)
                             }
                             
                         }

@@ -1,3 +1,4 @@
+
 //
 //  MapView.swift
 //  projetoITNomads
@@ -26,7 +27,7 @@ struct MapView: View {
         
         @State private var showingSheet = false
         @State private var paisEscolhido = "Brazil"
-    @State private var currentLoc = Location(name: "", regionalIndicator: "",
+    @State private var currentLoc = Location(corCima: "", corBaixo: "", name: "", regionalIndicator: "",
                                                  coordinates: CLLocationCoordinate2D(latitude: -15.749997, longitude: -47.9499962),
                                                  flag: "",
                                                  description: "")
@@ -50,7 +51,7 @@ struct MapView: View {
                             showingSheet.toggle()
                         }
                         .sheet(isPresented: $showingSheet) {
-                            DescriptionView(nomePais: currentLoc.name, picture: currentLoc.flag, descricao: currentLoc.description)
+                            DescriptionView(corPaisTop: currentLoc.corCima, corPaisBot: currentLoc.corBaixo, nomePais: currentLoc.name, picture: currentLoc.flag, descricao: currentLoc.description)
                         }
                         .imageScale(.large)
                 }
@@ -74,8 +75,10 @@ struct MapView: View {
             }
             .padding(.horizontal, 24)
             .onAppear(){
-                mapviewModel.fetch()
-            }
+                            mapviewModel.fetch()
+                            
+                            
+                        }
         }
     }
 }

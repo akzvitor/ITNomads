@@ -19,6 +19,8 @@ struct ForumEspecificoView: View {
     var body: some View {
         NavigationStack{
             ZStack{
+                LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
+                                    .ignoresSafeArea()
                 
                 ScrollView{
                     VStack{
@@ -28,13 +30,39 @@ struct ForumEspecificoView: View {
                         
                         ForEach(viewModelForum.chars, id: \._id){ per in
                             if per.pais! == nomePais {
-                                
                                 NavigationLink(destination: RespostaView(id: per._id!)){
                                     Text(per.tituloPergunta!)
+                                        .foregroundColor(.black)
                                 }
                                 .font(.title)
-                                Text(per.userPergunta!)
+                                
+                                NavigationLink(destination: ProfileView(presentSideMenu: .constant(true), userNameLocal: per.userPergunta!)){
+                                    Text(per.userPergunta!)
+                                        .foregroundColor(.black)
+                                        .font(.title3)
+                                }
+                                .font(.title)
+                                    
+                                    
+                                
+                                Spacer()
+                                    
+                                HStack{
+                                    
+                                    Image(systemName: "heart")
+                                    
+                                    NavigationLink(destination: RespostaView(id: per._id!)){
+                                        Image(systemName: "ellipsis.message")
+                                            .foregroundColor(.black)
+                                    }
+                                    
+                                    Image(systemName: "arrowshape.turn.up.right")
+
+                                }
+                                Spacer(minLength: 15)
                                 Rectangle()
+                                    .frame(width: 300, height: 2)
+                                    .foregroundColor(.gray)
                             }
                             
                         }
