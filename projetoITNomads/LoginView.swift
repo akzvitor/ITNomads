@@ -13,6 +13,15 @@ var body: some View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                
+                Text("ITNomads")
+                    .font(.title)
+                    .foregroundColor(.teal)
+                    .bold()
+                
+                Spacer()
+                    .frame(height: 70)
+                
                 TextField("Nome de usuário", text: $username)
                     .onChange(of: username) { newValue in
                         username = newValue.lowercased()
