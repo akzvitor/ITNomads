@@ -17,8 +17,9 @@ struct ProfileView: View {
     var body: some View {
         ZStack{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [.white, .teal]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                
                 VStack{
                     HStack{
                         Spacer()

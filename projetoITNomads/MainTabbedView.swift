@@ -12,7 +12,7 @@ struct MainTabbedView: View {
     @State var presentSideMenu = false
     @State var selectedSideMenuTab = 0
     
-    @State var userName = ""
+    @State var userName = "Eterno09"
     
     var body: some View {
         ZStack{

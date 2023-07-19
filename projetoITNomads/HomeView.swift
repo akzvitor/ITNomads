@@ -26,8 +26,9 @@ struct HomeView: View {
         
         NavigationStack{
             ZStack{
-                LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
-                                    .ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [.white, .teal]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                
                 ScrollView{
                     VStack{
                         Text("Destaques")

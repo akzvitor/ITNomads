@@ -11,7 +11,7 @@ import SwiftUI
 struct projetoITNomadsApp: App {
     var body: some Scene {
         WindowGroup {
-            MainTabbedView()
+            LoginView()
         }
     }
 }
