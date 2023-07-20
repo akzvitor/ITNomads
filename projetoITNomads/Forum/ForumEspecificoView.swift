@@ -70,23 +70,6 @@ struct ForumEspecificoView: View {
                 }.onAppear(){
                     viewModelForum.fetch()
                 }
-                
-                VStack{
-                    HStack{
-                        Spacer()
-                        Button{
-                            presentSideMenu.toggle()
-                        } label: {
-                            Image(systemName: "list.dash")
-                                .resizable()
-                                .frame(width: 25, height: 20)
-                                .foregroundColor(.black)
-                        }
-                    }
-                    
-                    Spacer()
-                    Spacer()
-                }
                 .padding(.horizontal, 24)
             }
         }

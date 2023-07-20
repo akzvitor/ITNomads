@@ -57,6 +57,7 @@ struct HomeView: View {
                     
                     Spacer()
                 }
+                    .toolbar(.hidden, for: .tabBar)
                 
                 
                 
