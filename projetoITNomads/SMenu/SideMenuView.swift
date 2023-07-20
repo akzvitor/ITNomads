@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SideMenuView: View {
     
+    @StateObject var viewModelUSide = viewModelUser()
+    
     @Binding var selectedSideMenuTab: Int
     @Binding var presentSideMenu: Bool
     
@@ -48,31 +50,57 @@ struct SideMenuView: View {
             Spacer()
         }
         .background(.clear)
+        .onAppear(){
+            viewModelUSide.fetch()
+        }
     }
     
     func ProfileImageView() -> some View{
         VStack(alignment: .center){
-            HStack{
-                Spacer()
-                Image("ppicture")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 100, height: 100)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 50)
-                            .stroke(.cyan.opacity(0.5), lineWidth: 10)
-                    )
-                    .cornerRadius(50)
-                Spacer()
+            ForEach(viewModelUSide.chars, id: \._id) { user in
+                if username == user.userName! {
+                    HStack{
+                        Spacer()
+                        
+                        AsyncImage(url: URL(string: user.fotoDePerfil!)) { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: 100, height: 100)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 50)
+                                        .stroke(.cyan.opacity(0.5), lineWidth: 10)
+                                )
+                                .cornerRadius(50)
+                            
+                        } placeholder: {
+                            
+                        }
+                        
+                        /*
+                         Image("ppicture")
+                         .resizable()
+                         .aspectRatio(contentMode: .fill)
+                         .frame(width: 100, height: 100)
+                         .overlay(
+                         RoundedRectangle(cornerRadius: 50)
+                         .stroke(.cyan.opacity(0.5), lineWidth: 10)
+                         )
+                         .cornerRadius(50)
+                         */
+                        
+                        Spacer()
+                    }
+                    
+                    Text(username)
+                        .font(.system(size: 18, weight: .bold))
+                        .foregroundColor(.black)
+                    
+                    Text("Desc.")
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundColor(.black.opacity(0.5))
+                }
             }
-            
-            Text(username)
-                .font(.system(size: 18, weight: .bold))
-                .foregroundColor(.black)
-            
-            Text("Desc.")
-                .font(.system(size: 14, weight: .semibold))
-                .foregroundColor(.black.opacity(0.5))
         }
     }
     
