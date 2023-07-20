@@ -15,32 +15,75 @@ struct RespostaView: View {
     @State var id: String = ""
     
     var body: some View {
-        ScrollView{
-            VStack{
-                ForEach(viewModelForum.chars, id: \._id!){ per in
-                    if per._id! == id {
-                        Text(per.tituloPergunta!)
-                            .font(.largeTitle.bold())
-                        Text(per.userPergunta!)
-                        Text(per.pergunta!)
-                            .font(.title2)
-                            .padding(20)
-                        
-                        
-                        ForEach(per.respostas, id: \.resposta!){ res in
-                            VStack{
-                                Text(res.userResposta!)
-                                Text(res.resposta!)
-                            }
-                            .padding(15)
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [.mint, .white]), startPoint: .top, endPoint: .bottom)
+                                .ignoresSafeArea()
+            
+            ScrollView{
+                VStack{
+                    ForEach(viewModelForum.chars, id: \._id!){ per in
+                        if per._id! == id {
+                            Text(per.tituloPergunta!)
+                                .font(.largeTitle.bold())
                             
+                            
+                            NavigationLink(destination: ProfileView(presentSideMenu: .constant(true), userNameLocal: per.userPergunta!)){
+                                Text(per.userPergunta!)
+                                    .foregroundColor(.black)
+                                    .font(.title3.bold())
+                                    .padding(5)
+                            }
+                            
+                            
+                            Text(per.pergunta!)
+                                .font(.title3)
+                                .padding(20)
+                            HStack{
+                                ForEach(1...10, id: \.self){ i in
+                                    Circle()
+                                        .frame(width: 5, height: 5)
+                                }
+                            }
+                            
+                            
+                            ForEach(per.respostas, id: \.resposta!){ res in
+                                VStack{
+                                    HStack{
+                                        NavigationLink(destination: ProfileView(presentSideMenu: .constant(true), userNameLocal: res.userResposta!)){
+                                            Text(res.userResposta!)
+                                                .foregroundColor(.black)
+                                                .font(.title3.bold())
+                                                .padding(5)
+                                        }
+                                        
+                                        /*
+                                        Text(res.userResposta!)
+                                            .font(.title3.bold())
+                                            .padding(5)
+                                         */
+                                        Spacer()
+                                    }
+                                    Text(res.resposta!)
+                                        .padding(10)
+                                    
+                                    
+                                    Rectangle()
+                                        .frame(width: 300, height: 2)
+                                        .foregroundColor(.gray)
+                                        .padding(20)
+                                    
+                                }
+                                //.padding(15)
+                            
+                                
+                            }
                         }
                     }
                 }
+            }.onAppear(){
+                viewModelForum.fetch()
             }
-        }.onAppear(){
-            viewModelForum.fetch()
-    }
+        }
     }
 }
 
@@ -49,3 +92,4 @@ struct RespostaView_Previews: PreviewProvider {
         RespostaView(id: String())
     }
 }
+
